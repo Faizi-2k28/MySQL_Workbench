@@ -1,0 +1,15 @@
+# PEMDAS
+SELECT first_name, last_name, age, (age + 10) * 10 - 20
+FROM employee_demographics;
+
+SELECT *
+FROM employee_salary;
+
+SELECT * 
+FROM parks_department;
+
+
+SELECT distinct first_name, gender
+FROM employee_demographics;
+
+# DISTINCT MEANS SELECTING THE UNIQUE VALUE FROM A COLUMN 
