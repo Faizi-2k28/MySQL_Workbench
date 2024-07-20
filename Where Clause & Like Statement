@@ -1,0 +1,60 @@
+-- WHERE CLAUSE
+
+SELECT * 
+FROM employee_salary
+WHERE employee_id = '4'
+;
+ 
+SELECT * 
+FROM employee_salary
+where salary >= 60000 
+;
+
+SELECT * 
+FROM employee_demographics
+WHERE gender != 'female'
+;
+
+SELECT * 
+FROM employee_demographics
+where birth_date > '1986-01-01'
+;
+
+-- AND OR NOT ------ LOGICAL OPERATORS 
+
+SELECT * 
+FROM employee_demographics
+where birth_date > '1986-01-01'
+AND gender ='FEMALE'
+;
+
+SELECT * 
+FROM employee_demographics
+where birth_date > '1986-01-01'
+OR gender ='FEMALE'
+;
+
+SELECT * 
+FROM employee_demographics
+where birth_date > '1986-01-01'
+OR NOT gender ='FEMALE'
+;
+
+SELECT * 
+FROM employee_demographics
+where (first_name ='Leslie' AND age = '44') OR age >55
+;
+
+
+-- LIKE Statement
+-- % means anything ---------- ___ means specific value 
+
+SELECT * 
+FROM employee_demographics
+where first_name LIKE '%n__'
+;
+
+SELECT * 
+FROM employee_demographics
+where birth_date LIKE '1986%'
+;
