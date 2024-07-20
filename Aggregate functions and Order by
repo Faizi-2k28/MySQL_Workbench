@@ -1,0 +1,17 @@
+-- GROUP BY -> AGGREGATE FUNCTIONS
+SELECT gender, AVG (age), max(age), min(AGE), count(AGE), sum(AGE)
+FROM employee_demographics
+GROUP BY gender
+;
+
+SELECT occupation, salary
+FROM employee_salary
+GROUP BY occupation, salary
+;
+
+-- ORDER BY -> ASCENDING / DESCENDING
+
+SELECT *
+FROM employee_demographics
+ORDER BY gender, age
+;
