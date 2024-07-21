@@ -1,0 +1,14 @@
+-- HAVING CLAUSE VS WHERE CLAUSE 
+
+SELECT gender, AVG (AGE) 
+FROM employee_demographics
+group by gender
+having AVG(AGE)
+;
+
+SELECT OCCUPATION, AVG (salary) 
+FROM employee_salary
+WHERE Occupation LIKE '%Mana%'
+group by OCCUPATION
+having AVG(SALARY)
+;
