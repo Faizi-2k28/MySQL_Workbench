@@ -13,6 +13,7 @@ PRIMARY KEY (STUDENT_ID)
 );
 
 CREATE TABLE STUDENT_MARKS(
+STUDENT_ID INT NOT NULL,
 FIRST_NAME VARCHAR(50),
 LAST_NAME VARCHAR(50),
 ROLL_NO INT NOT NULL,
@@ -34,20 +35,20 @@ VALUES
 (11, 'Mark', 'Brendanawicz', 40, 'Male'),
 (12, 'Craig', 'Middlebrooks', 37, 'Male');
 
-INSERT INTO student_marks(FIRST_NAME, LAST_NAME, ROLL_NO, GRADE, MARKS)
+INSERT INTO student_marks(STUDENT_ID, FIRST_NAME, LAST_NAME, ROLL_NO, GRADE, MARKS)
 VALUES
-('Leslie', 'Knope', '10', 'B',75),
-('Ron', 'Swanson', '20', 'C',65),
-('Tom', 'Haverford', '30', 'A',90),
-('April', 'Ludgate', '40', 'B',70),
-('Jerry', 'Gergich', '50', 'D',50),
-('Donna', 'Meagle', '60', 'C',65),
-('Ann', 'Perkins', '70', 'F',40),
-('Chris', 'Traeger', '80', 'A',90),
-('Ben', 'Wyatt', '90', 'B',75),
-('Andy', 'Dwyer', '100', 'D', 50),
-('Mark','Brendanawicz', '110', 'C', 60),
-('Craig','Middlebrooks', '120', 'F',49);
+('1','Leslie', 'Knope', '10', 'B',75),
+('2','Ron', 'Swanson', '20', 'C',65),
+('3','Tom', 'Haverford', '30', 'A',90),
+('4','April', 'Ludgate', '40', 'B',70),
+('5','Jerry', 'Gergich', '50', 'D',50),
+('6','Donna', 'Meagle', '60', 'C',65),
+('7','Ann', 'Perkins', '70', 'F',40),
+('8','Chris', 'Traeger', '80', 'A',90),
+('9','Ben', 'Wyatt', '90', 'B',75),
+('10','Andy', 'Dwyer', '100', 'D', 50),
+('11','Mark','Brendanawicz', '110', 'C', 60),
+('12','Craig','Middlebrooks', '120', 'F',49);
 
 ----------------------------- SELECT STATEMENT -----------------------
 
@@ -137,3 +138,49 @@ GROUP BY LAST_NAME
 HAVING avg_marks
 LIMIT 4,3
 ;
+
+-------------------------- JOINS ----------------------------------
+----------------------------- INNER JOIN -------------------------
+
+SELECT * 
+FROM STUDENT_DEMOGRAPHICS;
+
+SELECT * 
+FROM STUDENT_MARKS AS STM
+INNER JOIN STUDENT_DEMOGRAPHICS AS STD
+	ON STM.FIRST_NAME = STD.FIRST_NAME
+;
+
+----------------------- OUTER JOIN -----------------------------
+----------------------- LEFT JOIN ---------------------------- 
+SELECT * 
+FROM STUDENT_DEMOGRAPHICS;
+
+SELECT * 
+FROM STUDENT_MARKS AS STM
+LEFT JOIN STUDENT_DEMOGRAPHICS AS STD
+	ON STM.FIRST_NAME = STD.FIRST_NAME
+;
+  
+----------------------- RIGHT JOIN ----------------------------
+SELECT * 
+FROM STUDENT_DEMOGRAPHICS;
+
+SELECT * 
+FROM STUDENT_MARKS AS STM
+RIGHT JOIN STUDENT_DEMOGRAPHICS AS STD
+	ON STM.FIRST_NAME = STD.FIRST_NAME
+;
+
+----------------------- SELF JOIN ------------------------
+SELECT SM1.STUDENT_ID AS SM_EXTRA,
+SM1.FIRST_NAME AS FIRST_NAME_EXTRA,
+SM1.LAST_NAME AS LAST_NAME_EXTRA,
+SM2.FIRST_NAME AS FIRST_NAME_SM,
+SM2.LAST_NAME AS LAST_NAME_SM,
+SM2.STUDENT_ID AS STUDENT_ID_SM
+FROM STUDENT_MARKS AS SM1
+JOIN STUDENT_MARKS AS SM2
+	ON SM1.STUDENT_ID + 1 = SM2.STUDENT_ID
+;
+     
