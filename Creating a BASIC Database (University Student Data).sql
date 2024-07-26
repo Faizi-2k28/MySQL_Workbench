@@ -214,3 +214,45 @@ SELECT  FIRST_NAME, LAST_NAME, GRADE, 'HIGH ACHIEVER' AS LABEL
 FROM STUDENT_MARKS
 WHERE GRADE = 'A'
 ;
+
+-------------------------- STRING FUNCTIONS ------------------------
+-------------------------- LENGTH --------------------------------
+SELECT LENGTH('HELLO'); 
+
+SELECT FIRST_NAME, LAST_NAME, LENGTH(FIRST_NAME), LENGTH(LAST_NAME)
+FROM STUDENT_MARKS;
+
+----------------------- UPPER & LOWER -----------------
+SELECT LOWER ('HELLO'); 
+SELECT UPPER ('hello');
+
+SELECT FIRST_NAME, UPPER(FIRST_NAME), LAST_NAME, LOWER(LAST_NAME)
+FROM STUDENT_MARKS;
+
+-------------------------- TRIM ------------------------
+SELECT TRIM('                 HELLO                       ');
+SELECT LTRIM('                HELLO                       ');
+SELECT RTRIM('                HELLO                       ');
+
+-------------------------- SUBSTRING ----------------------
+SELECT FIRST_NAME, 
+LEFT(first_name, 4),
+RIGHT(FIRST_NAME, 3),
+SUBSTRING(FIRST_NAME, 3,2)
+FROM STUDENT_MARKS;
+
+----------------------- REPLACE -------------------------
+SELECT FIRST_NAME, REPLACE( FIRST_NAME,'A', 'Z'), LAST_NAME, REPLACE(LAST_NAME, 'e', 'c')
+FROM STUDENT_MARKS; 
+
+----------------------- LOCATE ----------------------------
+SELECT LOCATE('e','HELLO');
+
+SELECT FIRST_NAME, LOCATE('s', FIRST_NAME)
+FROM STUDENT_MARKS;  
+
+-------------------------- CONCATENATE ------------------------
+SELECT FIRST_NAME, LAST_NAME, MARKS, GRADE,
+CONCAT(FIRST_NAME,' ', LAST_NAME), 
+CONCAT(MARKS,' ', GRADE)
+FROM STUDENT_MARKS; 
