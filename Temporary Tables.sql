@@ -1,0 +1,28 @@
+----------------- Temporary tables ----------------- 
+
+CREATE TEMPORARY TABLE TEMP_TABLE
+(FIRST_NAME varchar(50),
+LAST_NAME varchar(50),
+FAVORITE_MOVIE varchar(100)
+);
+
+SELECT *
+FROM TEMP_TABLE;
+
+INSERT INTO TEMP_TABLE
+VALUES('MAX', 'BLACK', 'VENOM');
+
+SELECT *
+FROM TEMP_TABLE;
+
+
+SELECT *
+FROM employee_salary;
+
+CREATE TEMPORARY TABLE SALARY_OVER_50K
+SELECT *
+FROM employee_salary
+WHERE SALARY >= 50000;
+
+SELECT *
+FROM SALARY_OVER_50K;
